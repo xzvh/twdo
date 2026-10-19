@@ -1793,7 +1793,7 @@ end
 
 AR2_deathTP = { saved = nil }
 local function AR2_notify(title, content, duration)
-    local NL = getgenv and getgenv().Reddest Coupes Corvette_NL
+    local NL = getgenv and getgenv().OriginHUB_NL
     if NL then pcall(function() local Notif = NL:CreateNotification() Notif.new({ Title = title, Content = content, Duration = duration or 3 }) end) end
 end
 local function AR2_bindDeathTracker(char)
@@ -3766,7 +3766,7 @@ function AR2_buildUI()
     local snapshot = snapshotAllHosts()
     local okNL, NL = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/DeviceHB21/mylib/refs/heads/main/source.lua"))() end)
     if not okNL or not NL then warn("[Reddest Coupes Corvette] NL library failed: "..tostring(NL)) return end
-    if getgenv then getgenv().Reddest Coupes Corvette_NL = NL end
+    if getgenv then getgenv().OriginHUB_NL = NL end
     local ORANGE = AR2_CFG.ui.accent
     local size = AR2_uiSizeToUDim2()
     pcall(function() NL.Theme = "Dark" end)
@@ -3774,7 +3774,7 @@ function AR2_buildUI()
     local win
     local uiBuildOk, uiBuildErr = pcall(function()
         local Notif = NL:CreateNotification()
-        win = NL:CreateWindow({ Name = "Reddest Coupes Corvette", Content = "TWD Online v56", Size = size, ConfigFolder = "Reddest Coupes Corvette_Configs", Enable3DRenderer = false, Keybind = AR2_SETTINGS.menuKey or "P", Theme = "Dark", Accent = ORANGE })
+        win = NL:CreateWindow({ Name = "Reddest Coupes Corvette", Content = "TWD Online v56", Size = size, ConfigFolder = "OriginHUB_Configs", Enable3DRenderer = false, Keybind = AR2_SETTINGS.menuKey or "P", Theme = "Dark", Accent = ORANGE })
 
         pcall(function()
             if type(NL.Flags) ~= "table" then return end
@@ -3813,7 +3813,7 @@ function AR2_buildUI()
                 end,
             }
         end)
-        if getgenv then getgenv().Reddest Coupes Corvette_Window = win end
+        if getgenv then getgenv().OriginHUB_Window = win end
         pcall(function() if win.SetAccent then win:SetAccent(ORANGE) end end)
 
         local espTab = win:AddTab({Icon="eye", Name="ESP"})
